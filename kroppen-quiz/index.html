@@ -5,7 +5,12 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#7c3aed">
 <title>Kroppen – provträning åk 5</title>
-<link rel="stylesheet" href="styles.css">
+<style>
+:root{--bg:#f6f3fb;--card:#fff;--ink:#201a2b;--muted:#6c6577;--accent:#7c3aed;--accent2:#ede9fe;--ok:#15803d;--okbg:#dcfce7;--bad:#b91c1c;--badbg:#fee2e2;--line:#e6e0ec;--shadow:0 10px 30px rgba(44,32,62,.09)}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(180deg,#f3e8ff 0,#f8f7fb 220px);color:var(--ink);min-height:100vh}.wrap{width:min(760px,100%);margin:auto;padding:18px 14px 40px}.hero{padding:10px 2px 18px}.eyebrow{font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}h1{font-size:clamp(1.8rem,7vw,2.7rem);line-height:1.03;margin:.3rem 0 .65rem}h2{font-size:1.25rem;margin:.2rem 0 .7rem}p{line-height:1.5}.sub{color:var(--muted);margin:0;max-width:62ch}.card{background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:18px;margin-bottom:14px}.grid{display:grid;gap:12px}.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}.btn{appearance:none;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:15px;min-height:50px;padding:12px 14px;font:inherit;font-weight:750;text-align:left;cursor:pointer;box-shadow:0 2px 8px rgba(31,24,42,.04)}.btn:active{transform:scale(.99)}.btn.primary{background:var(--accent);color:#fff;border-color:var(--accent);text-align:center}.btn.soft{background:var(--accent2);border-color:#ddd6fe;color:#5b21b6}.btn.ghost{text-align:center}.btn[disabled]{opacity:.56;cursor:default}.topic{display:flex;align-items:center;gap:10px}.topic .ico{font-size:1.5rem}.small{font-size:.88rem;color:var(--muted)}.hidden{display:none!important}.topline{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}.pill{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:#f4f1f7;font-size:.82rem;font-weight:700;color:var(--muted)}.progress{height:10px;background:#eee9f3;border-radius:99px;overflow:hidden;margin:10px 0 18px}.progress>i{display:block;height:100%;background:var(--accent);width:0;transition:width .25s}.q{font-size:1.25rem;font-weight:800;line-height:1.34;margin:4px 0 16px}.answers{display:grid;gap:10px}.answer{width:100%;text-align:left;position:relative}.answer.correct{background:var(--okbg);border-color:#86efac}.answer.wrong{background:var(--badbg);border-color:#fecaca}.feedback{border-radius:15px;padding:12px 14px;margin-top:14px;font-size:.95rem;line-height:1.45}.feedback.ok{background:var(--okbg);color:#14532d}.feedback.bad{background:var(--badbg);color:#7f1d1d}.nextbar{display:flex;gap:9px;margin-top:14px}.nextbar .btn{flex:1;text-align:center}.scorebig{font-size:3.2rem;font-weight:900;line-height:1;margin:.3rem 0}.resultgrid{display:grid;gap:8px;margin:16px 0}.resultrow{display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}.label{font-weight:750}.visualStage{background:#fbfafc;border:1px solid var(--line);border-radius:18px;padding:8px;overflow:hidden}.svg{width:100%;height:auto;display:block}.hot{cursor:pointer}.hot circle{fill:#fff;stroke:#8b5cf6;stroke-width:3}.hot text{font-weight:900;fill:#4c1d95;pointer-events:none}.hot.good circle{fill:#dcfce7;stroke:#22c55e}.hot.bad circle{fill:#fee2e2;stroke:#ef4444}.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.chip{border:1px solid var(--line);background:white;border-radius:999px;padding:9px 12px;font-weight:750;cursor:pointer}.chip.sel{outline:3px solid #c4b5fd;background:#f5f3ff}.chip.done{opacity:.42;text-decoration:line-through}.diagramHelp{font-size:.9rem;color:var(--muted);margin:8px 0 0}.resume{background:#fff7ed;border-color:#fed7aa}.footer{color:var(--muted);font-size:.78rem;text-align:center;margin-top:20px}.mastery{height:7px;background:#eee;border-radius:99px;overflow:hidden;margin-top:5px}.mastery i{height:100%;background:#8b5cf6;display:block}.toast{position:sticky;bottom:10px;background:#1f1630;color:#fff;padding:10px 12px;border-radius:13px;margin-top:10px;text-align:center;font-weight:700;box-shadow:var(--shadow)}
+@media(max-width:520px){.grid2{grid-template-columns:1fr}.card{padding:15px}.wrap{padding:12px 10px 32px}.q{font-size:1.14rem}.btn{min-height:54px}.hero{padding-top:4px}.scorebig{font-size:2.7rem}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
 </head>
 <body>
 <main class="wrap">
@@ -82,10 +87,143 @@
 
   <div class="footer">Övningen bygger på instuderingsfrågorna och de uppladdade sidorna ur kapitlet ”Kroppen”.</div>
 </main>
-<script src="data1.js"></script>
-<script src="data2.js"></script>
-<script src="data3.js"></script>
-<script src="core1.js"></script>
-<script src="core2.js"></script>
+<script>
+(() => {
+const topics = {
+  digestion:{name:'Matspjälkning',icon:'🍔'}, energy:{name:'Energi',icon:'⚡'}, breathing:{name:'Andning',icon:'🫁'},
+  circulation:{name:'Hjärta & kretslopp',icon:'❤️'}, blood:{name:'Blod & blodkärl',icon:'🩸'},
+  skeleton:{name:'Skelett',icon:'🦴'}, teeth:{name:'Tänder',icon:'🦷'}, muscles:{name:'Muskler & motion',icon:'💪'}, injury:{name:'Skador',icon:'🩹'}
+};
+const bank = [
+// Matspjälkning
+{c:'digestion',q:'Vilken ordning beskriver matens väg genom kroppen bäst?',o:['Munnen → matstrupen → magsäcken → tunntarmen → tjocktarmen → ändtarmen','Munnen → magsäcken → matstrupen → tjocktarmen → tunntarmen → ändtarmen','Munnen → luftstrupen → magsäcken → tunntarmen → ändtarmen','Munnen → matstrupen → tjocktarmen → magsäcken → tunntarmen'],a:0,e:'Maten går från munnen genom matstrupen till magsäcken, vidare genom tunntarm och tjocktarm och till sist ändtarmen.'},
+{c:'digestion',q:'Vad händer med maten i munnen?',o:['Den tuggas och blandas med saliv','All näring går direkt ut i blodet','Den blandas med urin','Den förvandlas direkt till avföring'],a:0,e:'Tänderna finfördelar maten och saliven gör tuggan lättare att svälja.'},
+{c:'digestion',q:'Vad gör magsäcken med maten?',o:['Knådar den och blandar den med magsaft','Tar upp syre ur den','Pumpar den till hjärtat','Gör om den till blod'],a:0,e:'Magsäcken är en kraftig muskel som knådar maten och blandar den med sur magsaft.'},
+{c:'digestion',q:'Var tas en stor del av näringen från maten upp?',o:['I tunntarmen','I luftstrupen','I hjärtat','I tjocktarmen'],a:0,e:'Tunntarmens tarmludd har små blodkärl som tar upp näringsämnen.'},
+{c:'digestion',q:'Vad är en viktig uppgift för tjocktarmen?',o:['Att suga tillbaka mycket av vattnet','Att ta upp syre från luften','Att pumpa blod','Att bilda magsaft'],a:0,e:'Det som kroppen inte tagit upp går till tjocktarmen, där mycket av vattnet sugs tillbaka.'},
+{c:'digestion',q:'Vad är tarmludd?',o:['Veckad och luddig insida i tunntarmen som hjälper till att ta upp näring','Små hår i luftstrupen','Muskler utanpå magsäcken','Ben inne i tarmen'],a:0,e:'Tarmluddet gör ytan i tunntarmen stor och där finns små blodkärl som tar upp näring.'},
+// Energi
+{c:'energy',q:'Varför behöver kroppen energi?',o:['För att bland annat hålla värmen, röra sig, tänka och växa','Bara för att kunna sova','Bara för att kunna äta','Bara för att hålla tänderna vita'],a:0,e:'Boken tar upp att vi behöver energi för värme, rörelse, tänkande och tillväxt.'},
+{c:'energy',q:'Varifrån får kroppen främst energi enligt boken?',o:['Från maten, bland annat kolhydrater och fett','Från luften ensam','Från skelettet','Från blodplättarna'],a:0,e:'Maten innehåller energirika näringsämnen. Kolhydrater lyfts särskilt fram som en viktig energikälla.'},
+{c:'energy',q:'Vad behövs tillsammans med näringsämnen för att kroppen ska kunna frigöra energi?',o:['Syre','Koldioxid','Blodplättar','Saliv'],a:0,e:'Vid kroppens förbränning används syre för att frigöra energi ur näringsämnen.'},
+{c:'energy',q:'Vad bildas bland annat när näringsämnen förbränns i kroppen?',o:['Koldioxid','Emalj','Blodplasma','Benmärg'],a:0,e:'Förbränningen frigör energi och bildar bland annat koldioxid som kroppen behöver göra sig av med.'},
+// Andning
+{c:'breathing',q:'Vilken väg tar luften på väg ner mot lungorna?',o:['Näsa eller mun → struphuvud → luftstrupe → luftrör','Näsa → matstrupe → magsäck → lungor','Mun → hjärta → luftstrupe → lungor','Näsa → tjocktarm → luftrör → lungor'],a:0,e:'Bokens bild visar näsa/mun, struphuvud, luftstrupe och luftrör på vägen mot lungorna.'},
+{c:'breathing',q:'Vad händer i lungblåsorna?',o:['Syre går över till blodet och koldioxid lämnar blodet','Maten bryts ner','Blodplättar bildas','Ben växer ihop'],a:0,e:'Lungblåsorna ligger längst ut på luftrören och här sker gasutbytet mellan luft och blod.'},
+{c:'breathing',q:'Vad hjälper mellangärdet till med?',o:['Andningen','Matspjälkningen','Blodets koagulering','Tändernas tillväxt'],a:0,e:'Mellangärdet är en viktig muskel som används när vi andas.'},
+{c:'breathing',q:'Varför hostar vi?',o:['För att rensa luftvägarna från slem och irriterande ämnen','För att få hjärtat att pumpa snabbare','För att få maten till magsäcken','För att bygga muskler'],a:0,e:'Hostan hjälper till att hindra skräp, slem och irriterande ämnen från att hamna i lungorna.'},
+{c:'breathing',q:'Vad heter de små hår som hjälper till att föra skräp uppåt i luftstrupen?',o:['Flimmerhår','Tarmludd','Nerver','Senor'],a:0,e:'Flimmerhåren rör sig och hjälper till att transportera bort skräp från luftvägarna.'},
+{c:'breathing',q:'Vilket ämne i luften är kroppen beroende av?',o:['Syre','Koldioxid','Magsaft','Hemoglobin'],a:0,e:'Syret behövs bland annat i cellernas förbränning.'},
+{c:'breathing',q:'Vilken gas transporteras med blodet till lungorna och andas ut?',o:['Koldioxid','Syre','Kalcium','Saliv'],a:0,e:'Koldioxid är en restprodukt från kroppens förbränning och lämnar kroppen via utandningsluften.'},
+// Hjärtat och kretslopp
+{c:'circulation',q:'Vad är hjärtat?',o:['En muskel som pumpar runt blodet','En körtel som gör magsaft','Ett ben som skyddar lungorna','En del av tarmen'],a:0,e:'Hjärtat är en kraftig muskel vars arbete driver blodet genom kroppen.'},
+{c:'circulation',q:'Vad gör hjärtats högra halva enligt boken?',o:['Pumpar blod till lungorna','Pumpar maten till tarmen','Pumpar urin till njurarna','Pumpar syre direkt till magen'],a:0,e:'Den högra halvan skickar blodet till lungorna.'},
+{c:'circulation',q:'Vad gör hjärtats vänstra halva?',o:['Pumpar syrerikt blod ut i kroppen','Pumpar luft till lungorna','Pumpar mat till magsäcken','Pumpar urin till urinblåsan'],a:0,e:'När blodet har hämtat syre i lungorna går det till vänster hjärthalva och pumpas ut i kroppen.'},
+{c:'circulation',q:'Vad menas med det lilla kretsloppet?',o:['Blodets väg mellan hjärtat och lungorna','Blodets väg mellan hjärtat och hela kroppen','Matens väg genom tarmen','Luftens väg genom näsan'],a:0,e:'Det lilla kretsloppet går hjärta–lungor–hjärta.'},
+{c:'circulation',q:'Vad menas med det stora kretsloppet?',o:['Blodets väg mellan hjärtat och resten av kroppen','Blodets väg bara mellan hjärtat och lungorna','Matens väg mellan mage och tarm','Luftens väg från näsan till lungorna'],a:0,e:'Det stora kretsloppet för syrerikt blod från hjärtat ut i kroppen och tillbaka igen.'},
+{c:'circulation',q:'Vad är pulsen?',o:['Pumpstötarna från hjärtat som kan kännas i blodkärlen','Hur snabbt man andas','Hur snabbt maten passerar tarmen','Hur mycket blod man har'],a:0,e:'Boken beskriver pulsen som de pumpstötar från hjärtat som går att känna.'},
+// Blod och blodkärl
+{c:'blood',q:'Vad är röda blodkroppars viktigaste uppgift i det här kapitlet?',o:['Att transportera syre','Att bekämpa bakterier','Att stoppa blödningar','Att bryta ner mat'],a:0,e:'Hemoglobinet i de röda blodkropparna transporterar syre.'},
+{c:'blood',q:'Vad gör vita blodkroppar?',o:['Hjälper kroppens försvar','Transporterar det mesta syret','Bygger skelettet','Bildar saliv'],a:0,e:'Vita blodkroppar hjälper kroppen att försvara sig mot bland annat bakterier.'},
+{c:'blood',q:'Vad gör blodplättar när du får ett sår?',o:['Hjälper till att stoppa blödningen','Transporterar syre till lungorna','Bryter ner maten','Gör blodet rött'],a:0,e:'Blodplättar fastnar i ett nät som bildas vid såret och hjälper blodet att levra sig.'},
+{c:'blood',q:'Vad är blodplasma?',o:['Vätskan som blodets delar finns i','En sorts ben','En muskel i hjärtat','Ett lager på tanden'],a:0,e:'Blodplasma är blodets vätska och innehåller vatten och lösta ämnen.'},
+{c:'blood',q:'Varför ser blod rött ut enligt boken?',o:['På grund av hemoglobinet i de röda blodkropparna','På grund av blodplasman','På grund av vita blodkroppar','På grund av koldioxid'],a:0,e:'Hemoglobin innehåller järn och ger de röda blodkropparna deras röda färg.'},
+{c:'blood',q:'Vilka blodkärl leder blod från hjärtat?',o:['Artärer','Vener','Kapillärer','Luftrör'],a:0,e:'Artärer är kärlen som för blod ut från hjärtat.'},
+{c:'blood',q:'Vilka blodkärl leder blod tillbaka till hjärtat?',o:['Vener','Artärer','Kapillärer','Lungblåsor'],a:0,e:'Vener leder blod tillbaka mot hjärtat.'},
+{c:'blood',q:'Vad heter de allra smalaste blodkärlen?',o:['Kapillärer','Artärer','Vener','Senor'],a:0,e:'Kapillärerna är de allra minsta blodkärlen och bildar ett fint nät i kroppen.'},
+{c:'blood',q:'Hur kan blod från stortån hjälpas upp mot hjärtat?',o:['Musklerna pressar på venerna och klaffar hindrar blodet från att rinna tillbaka','Tyngdkraften drar blodet uppåt','Magsäcken pumpar blodet','Lungblåsorna suger upp blodet'],a:0,e:'Musklernas arbete hjälper venblodet uppåt och venklaffar motverkar att det rinner tillbaka.'},
+// Skelett
+{c:'skeleton',q:'Ungefär hur många ben har en vuxen människa?',o:['206','106','306','406'],a:0,e:'En vuxen människas skelett består av ungefär 206 ben.'},
+{c:'skeleton',q:'Vilka två ämnen lyfter boken fram som viktiga byggstenar i skelettet?',o:['Kalcium och fosfor','Syre och koldioxid','Järn och saliv','Blodplasma och protein'],a:0,e:'Boken beskriver kalcium och fosfor som två viktiga ämnen som bygger upp skelettet.'},
+{c:'skeleton',q:'Vad är en viktig uppgift för kraniet?',o:['Att skydda hjärnan','Att pumpa blod','Att lagra maten','Att bilda urin'],a:0,e:'Kraniet är benen i skallen och skyddar hjärnan.'},
+{c:'skeleton',q:'Vad skyddar bröstkorgen bland annat?',o:['Hjärtat och lungorna','Tänderna och tungan','Knäna och fötterna','Njurarna och urinblåsan enbart'],a:0,e:'Bröstkorgen skyddar bland annat hjärta och lungor.'},
+{c:'skeleton',q:'Vad består ryggraden av?',o:['Många kotor staplade på varandra','Ett enda långt ben','Bara brosk','Muskelfibrer'],a:0,e:'Ryggraden består av många kotor. Mellan kotorna ligger diskar.'},
+{c:'skeleton',q:'Vad är svanskotan?',o:['Små kotor längst ner på ryggraden','Ett ben i handen','En del av bröstkorgen','Ett ben i käken'],a:0,e:'Svanskotorna sitter längst ner på ryggraden.'},
+{c:'skeleton',q:'Vad gör bäckenet bland annat?',o:['Bär upp magen, tarmarna och andra inälvor','Skyddar hjärnan','Pumpar blod','Tar upp syre'],a:0,e:'Bokens skelettbild beskriver bäckenet som en skålform som bär upp inälvorna.'},
+// Tänder
+{c:'teeth',q:'Vad heter tandens mycket hårda yttersta lager?',o:['Emalj','Pulpa','Tandkött','Tandben'],a:0,e:'Emaljen är tandens hårda yttre hölje och beskrivs i boken som kroppens hårdaste material.'},
+{c:'teeth',q:'Vad finns innanför emaljen?',o:['Tandben','Tandkött','Bara luft','Bröstkorg'],a:0,e:'Innanför emaljen ligger tandbenet.'},
+{c:'teeth',q:'Vad finns i pulpan?',o:['Blodkärl och nerver','Bara emalj','Benmärg','Lungblåsor'],a:0,e:'Pulpan ligger längst in i tanden och innehåller blodkärl och nerver.'},
+{c:'teeth',q:'Var sitter tandroten?',o:['Nedsänkt i käkbenet','I lungorna','I tungan','I bröstbenet'],a:0,e:'Tandroten sitter fast nedsänkt i käkbenet.'},
+{c:'teeth',q:'Vad händer om ett hål når ända in till pulpan?',o:['Det kan göra mycket ont','Tanden börjar pumpa blod','Tanden blir en mjölktand igen','Käkbenet försvinner direkt'],a:0,e:'Boken säger att det kan göra mycket ont när ett hål når in till pulpan där nerverna finns.'},
+// Muskler och motion
+{c:'muscles',q:'Varför behöver musklerna syre?',o:['För att kunna frigöra energi ur näringen när de arbetar','För att göra blodet rött','För att bygga emalj','För att bilda skelettets kotor'],a:0,e:'Syre behövs i kroppens förbränning så att musklerna kan få energi.'},
+{c:'muscles',q:'Hur kommer syret till musklerna?',o:['Det transporteras dit med blodet','Det går genom skelettet','Det går direkt från huden','Det transporteras i matstrupen'],a:0,e:'Blodet hämtar syre i lungorna och transporterar det vidare till kroppens delar, bland annat musklerna.'},
+{c:'muscles',q:'Hur kan musklerna få skelettet att röra sig?',o:['De drar ihop sig och drar i benen via senor','De blåser upp benen med luft','De skjuter på benen med blod','De gör benen mjuka'],a:0,e:'Muskler kan dra ihop sig. Senor fäster musklerna vid skelettet så att rörelser kan uppstå.'},
+{c:'muscles',q:'Vad händer med biceps när du böjer armen?',o:['Den drar ihop sig','Den försvinner','Den blir ett ben','Den fylls med luft'],a:0,e:'När armen böjs är det biceps, armböjarmuskeln, som drar ihop sig.'},
+{c:'muscles',q:'Vad menas med en viljestyrd muskel?',o:['En muskel du kan styra medvetet','En muskel som bara finns i tarmen','En muskel som aldrig arbetar','En muskel som består av ben'],a:0,e:'Viljestyrda muskler kan du själv bestämma över, till exempel många muskler i armar och ben.'},
+{c:'muscles',q:'Vilket är ett exempel på muskler som arbetar automatiskt?',o:['Muskler i tarmarna och hjärtat','Biceps när du lyfter en bok','Musklerna som rör ett finger på kommando','Musklerna som sparkar en boll på kommando'],a:0,e:'Boken nämner bland annat tarmarna och hjärtat som muskler som arbetar automatiskt.'},
+{c:'muscles',q:'Vad är träningsvärk?',o:['Ömhet efter att musklerna arbetat mer än vanligt eller på ett ovant sätt','Ett benbrott','En infektion i lungan','När hjärtat slutar slå'],a:0,e:'Boken beskriver träningsvärk som ömhet efter ovanlig eller större ansträngning.'},
+{c:'muscles',q:'Varför är det bra att motionera enligt kapitlet?',o:['Musklerna och skelettet blir starkare när de används','Tänderna får fler lager emalj','Man får fler ben i kroppen','Blodet slutar behöva syre'],a:0,e:'Boken betonar att användning och rörelse gör både muskler och skelett starkare.'},
+{c:'muscles',q:'Vad kan hända med musklerna om man ligger still länge?',o:['De kan bli mindre och svagare','De blir automatiskt dubbelt så stora','De blir ben','De slutar behöva blod'],a:0,e:'Boken tar upp att musklerna blir mindre och svagare om de inte används.'},
+// Skador
+{c:'injury',q:'Vad skadas oftast vid en stukad fot?',o:['Ledband runt leden','Tandemaljen','Lungblåsorna','Kraniet'],a:0,e:'En stukning innebär vanligen att ledband kring en led sträckts eller skadats.'},
+{c:'injury',q:'Vad kan hända vid en stukning?',o:['Det kan göra ont och bli svullet','Alla ben i foten går alltid av','Blodet slutar cirkulera i hela kroppen','Tanden tappar emaljen'],a:0,e:'En stukad led kan göra ont och svullna när vävnaden runt leden skadats.'},
+{c:'injury',q:'Vad behöver ett brutet ben enligt boken för att läka bra?',o:['Hållas stilla och placeras i rätt läge','Tränas hårt direkt','Hållas i ständig rörelse','Kylas ner under lång tid'],a:0,e:'Vid benbrott behöver benet hållas stilla och i rätt läge, till exempel med gips eller skena.'}
+];
+const topicOrder=['digestion','energy','breathing','circulation','blood','skeleton','teeth','muscles','injury'];
+const sections=['home','topics','quiz','visual','result'];
+let state={mode:'exam',questions:[],index:0,score:0,stats:{},locked:false};
+const $=id=>document.getElementById(id);
+function show(id){sections.forEach(s=>$(s).classList.toggle('hidden',s!==id));window.scrollTo({top:0,behavior:'smooth'});}
+function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function renderOverview(){
+  $('overview').innerHTML=topicOrder.map(k=>`<div class="topic"><div class="ico">${topics[k].icon}</div><div><div class="label">${topics[k].name}</div><div class="small">${bank.filter(x=>x.c===k).length} träningsfrågor</div></div></div>`).join('');
+  $('topicList').innerHTML=topicOrder.map(k=>`<button class="btn topicPick" data-topic="${k}"><span style="font-size:1.3rem">${topics[k].icon}</span> ${topics[k].name}<div class="small">${bank.filter(x=>x.c===k).length} frågor i banken</div></button>`).join('');
+  document.querySelectorAll('.topicPick').forEach(b=>b.addEventListener('click',()=>startTopic(b.dataset.topic)));
+}
+function balancedExam(){
+  let selected=[];
+  topicOrder.forEach(k=>{const arr=shuffle(bank.filter(x=>x.c===k));const take=(k==='blood'||k==='breathing'||k==='muscles')?4:3;selected.push(...arr.slice(0,take));});
+  // 29 questions from quotas; add one random unused to reach 30.
+  const used=new Set(selected);const rest=shuffle(bank.filter(x=>!used.has(x)));selected.push(rest[0]);return shuffle(selected).slice(0,30);
+}
+function startExam(resume=false){
+  if(resume){const saved=JSON.parse(localStorage.getItem('kroppenQuizState')||'null');if(saved){state=saved;show('quiz');renderQ();return;}}
+  state={mode:'exam',questions:balancedExam(),index:0,score:0,stats:{},locked:false};save();show('quiz');renderQ();
+}
+function startTopic(k){state={mode:'topic',topic:k,questions:shuffle(bank.filter(x=>x.c===k)),index:0,score:0,stats:{},locked:false};show('quiz');renderQ();}
+function save(){if(state.mode==='exam'&&state.index<state.questions.length)localStorage.setItem('kroppenQuizState',JSON.stringify(state));}
+function clearSave(){localStorage.removeItem('kroppenQuizState');updateResume();}
+function renderQ(){
+  const q=state.questions[state.index];if(!q){finishQuiz();return;}state.locked=false;
+  $('quizMode').textContent=state.mode==='exam'?'Provträning':topics[state.topic].name;
+  $('counter').textContent=`Fråga ${state.index+1} av ${state.questions.length}`;$('liveScore').textContent=`Rätt: ${state.score}`;$('bar').style.width=`${(state.index/state.questions.length)*100}%`;
+  $('catPill').textContent=`${topics[q.c].icon} ${topics[q.c].name}`;$('question').textContent=q.q;$('answers').innerHTML='';$('feedback').className='feedback hidden';$('nextBtn').classList.add('hidden');
+  const opts=q.o.map((text,i)=>({text,correct:i===q.a}));shuffle(opts).forEach(opt=>{const b=document.createElement('button');b.className='btn answer';b.type='button';b.textContent=opt.text;b.addEventListener('click',()=>answerQ(b,opt.correct,q));$('answers').appendChild(b);});
+}
+function answerQ(btn,correct,q){if(state.locked)return;state.locked=true;document.querySelectorAll('#answers .answer').forEach(b=>b.disabled=true);if(!state.stats[q.c])state.stats[q.c]={right:0,total:0};state.stats[q.c].total++;
+  if(correct){state.score++;state.stats[q.c].right++;btn.classList.add('correct');$('feedback').className='feedback ok';$('feedback').textContent='Rätt! '+q.e;}else{btn.classList.add('wrong');[...document.querySelectorAll('#answers .answer')].find(b=>b.textContent===q.o[q.a])?.classList.add('correct');$('feedback').className='feedback bad';$('feedback').textContent='Inte riktigt. '+q.e;}
+  $('feedback').classList.remove('hidden');$('liveScore').textContent=`Rätt: ${state.score}`;$('nextBtn').classList.remove('hidden');save();
+}
+$('nextBtn').addEventListener('click',()=>{state.index++;save();renderQ();});
+$('quitQuiz').addEventListener('click',()=>{if(state.mode==='exam')save();show('home');updateResume();});
+function finishQuiz(){if(state.mode==='exam')clearSave();show('result');const pct=Math.round(100*state.score/state.questions.length);$('resultScore').textContent=`${state.score} / ${state.questions.length}`;
+  $('resultTitle').textContent=pct>=85?'Mycket bra – du har riktigt bra koll!':pct>=70?'Bra jobbat – nästan där!':'Bra tränat – kör de svagaste områdena en gång till.';
+  $('resultText').textContent=`Du fick ${pct} % rätt. Resultatet nedan visar vilka områden som är starkast och vilka som är bra att repetera.`;
+  $('resultGrid').innerHTML=topicOrder.filter(k=>state.stats[k]).map(k=>{const s=state.stats[k],p=Math.round(100*s.right/s.total);return `<div class="resultrow"><div><div class="label">${topics[k].icon} ${topics[k].name}</div><div class="mastery"><i style="width:${p}%"></i></div></div><strong>${s.right}/${s.total}</strong></div>`}).join('');
+}
+$('againBtn').addEventListener('click',()=>startExam());$('homeBtn').addEventListener('click',()=>show('home'));
+function updateResume(){const saved=JSON.parse(localStorage.getItem('kroppenQuizState')||'null');if(saved&&saved.mode==='exam'&&saved.questions?.length){$('resumeCard').classList.remove('hidden');$('resumeText').textContent=`Du var på fråga ${saved.index+1} av ${saved.questions.length} och hade ${saved.score} rätt.`;}else $('resumeCard').classList.add('hidden');}
+$('resumeBtn').addEventListener('click',()=>startExam(true));
+document.querySelectorAll('[data-action="exam"]').forEach(b=>b.addEventListener('click',()=>startExam()));document.querySelectorAll('[data-action="topics"]').forEach(b=>b.addEventListener('click',()=>show('topics')));document.querySelectorAll('[data-action="visual"]').forEach(b=>b.addEventListener('click',()=>startVisual()));document.querySelectorAll('[data-back]').forEach(b=>b.addEventListener('click',()=>show('home')));
+
+const visuals=[
+{name:'Skelettet',labels:['Kranium','Käkben','Nyckelben','Bröstkorg','Ryggrad','Bäcken','Svanskotan','Knäskål'],svg:`<svg class="svg" viewBox="0 0 420 640" aria-label="Förenklad skelettbild"><g fill="none" stroke="#8f8799" stroke-width="7" stroke-linecap="round"><ellipse cx="210" cy="65" rx="46" ry="54"/><path d="M185 108 Q210 126 235 108 M178 130 L242 130 M210 130 L210 300 M170 154 Q210 188 250 154 M163 180 Q210 216 257 180 M160 207 Q210 245 260 207 M178 134 L135 160 L100 255 M242 134 L285 160 L320 255 M100 255 L75 350 M320 255 L345 350 M175 300 L155 350 L185 370 L210 340 M245 300 L265 350 L235 370 L210 340 M185 370 L170 475 M235 370 L250 475 M170 495 L155 595 M250 495 L265 595"/><circle cx="170" cy="484" r="12"/><circle cx="250" cy="484" r="12"/></g>${hot(210,42,1,'Kranium')}${hot(210,105,2,'Käkben')}${hot(175,136,3,'Nyckelben')}${hot(255,196,4,'Bröstkorg')}${hot(210,252,5,'Ryggrad')}${hot(255,326,6,'Bäcken')}${hot(210,345,7,'Svanskotan')}${hot(170,484,8,'Knäskål')}</svg>`},
+{name:'Tanden',labels:['Emalj','Tandben','Pulpa','Tandkött','Käkben','Blodkärl','Nerver'],svg:`<svg class="svg" viewBox="0 0 440 530" aria-label="Förenklad genomskärning av en tand"><path d="M135 55 Q220 8 305 55 Q340 88 315 170 Q299 217 279 251 L263 407 Q257 472 220 482 Q183 472 177 407 L161 251 Q141 217 125 170 Q100 88 135 55Z" fill="#fff" stroke="#8f8799" stroke-width="5"/><path d="M150 72 Q220 34 290 72 Q315 99 296 159 Q283 203 266 232 L174 232 Q157 203 144 159 Q125 99 150 72Z" fill="#dbeafe" stroke="#bfdbfe" stroke-width="3"/><path d="M175 91 Q220 63 265 91 Q281 122 267 172 L251 221 L189 221 L173 172 Q159 122 175 91Z" fill="#fde68a"/><path d="M204 108 Q220 91 236 108 Q244 141 233 191 L228 390 Q226 430 220 449 Q214 430 212 390 L207 191 Q196 141 204 108Z" fill="#fecaca"/><path d="M109 242 Q220 274 331 242" fill="none" stroke="#f9a8d4" stroke-width="22" stroke-linecap="round"/><path d="M219 145 L219 435" stroke="#dc2626" stroke-width="3"/><path d="M226 145 L233 435" stroke="#7c3aed" stroke-width="2"/>${hot(302,91,1,'Emalj')}${hot(270,171,2,'Tandben')}${hot(220,151,3,'Pulpa')}${hot(321,246,4,'Tandkött')}${hot(309,352,5,'Käkben')}${hot(231,392,6,'Blodkärl')}${hot(184,408,7,'Nerver')}</svg>`},
+{name:'Andningen',labels:['Näsan eller munnen','Struphuvudet','Luftstrupen','Luftrören','Lungorna','Mellangärdet'],svg:`<svg class="svg" viewBox="0 0 430 570" aria-label="Förenklad bild av andningsorganen"><circle cx="205" cy="65" r="47" fill="none" stroke="#8f8799" stroke-width="5"/><path d="M205 111 L205 282" stroke="#8f8799" stroke-width="15" stroke-linecap="round"/><path d="M205 272 L155 326 M205 272 L255 326" stroke="#8f8799" stroke-width="10" stroke-linecap="round"/><path d="M145 234 Q78 255 76 365 Q80 465 164 466 Q191 433 188 332 Q181 270 145 234Z" fill="#ddd6fe"/><path d="M265 234 Q332 255 334 365 Q330 465 246 466 Q219 433 222 332 Q229 270 265 234Z" fill="#ddd6fe"/><path d="M102 483 Q205 522 308 483" fill="none" stroke="#c4b5fd" stroke-width="10" stroke-linecap="round"/>${hot(235,73,1,'Näsan eller munnen')}${hot(205,143,2,'Struphuvudet')}${hot(205,210,3,'Luftstrupen')}${hot(248,301,4,'Luftrören')}${hot(292,374,5,'Lungorna')}${hot(205,494,6,'Mellangärdet')}</svg>`}
+];
+function hot(x,y,n,a){return `<g class="hot" data-answer="${a}" tabindex="0" role="button"><circle cx="${x}" cy="${y}" r="18"/><text x="${x}" y="${y+4}" text-anchor="middle">${n}</text></g>`;}
+let vi=0,vsel=null,vscore=0,vDone=new Set();
+function startVisual(){vi=0;renderVisual();show('visual');}
+function renderVisual(){const v=visuals[vi];vscore=0;vsel=null;vDone=new Set();$('visualTitle').textContent=v.name;$('visualScore').textContent=`0 / ${v.labels.length}`;$('visualCanvas').innerHTML=v.svg;$('visualChips').innerHTML='';$('visualFeedback').className='feedback hidden';$('visualNext').classList.add('hidden');
+  shuffle(v.labels).forEach(l=>{const b=document.createElement('button');b.type='button';b.className='chip';b.textContent=l;b.dataset.label=l;b.addEventListener('click',()=>{if(b.classList.contains('done'))return;document.querySelectorAll('#visualChips .chip').forEach(x=>x.classList.remove('sel'));vsel=l;b.classList.add('sel');$('visualFeedback').className='feedback';$('visualFeedback').textContent=`Valt: ${l}. Tryck på rätt siffra i bilden.`;});$('visualChips').appendChild(b);});
+  document.querySelectorAll('#visualCanvas .hot').forEach(g=>{const act=()=>visualTap(g,v);g.addEventListener('click',act);g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();act();}});});
+}
+function visualTap(g,v){if(!vsel||vDone.has(g.dataset.answer))return;if(g.dataset.answer===vsel){g.classList.add('good');g.querySelector('text').textContent='✓';vDone.add(vsel);vscore++;document.querySelector(`#visualChips .chip[data-label="${CSS.escape(vsel)}"]`)?.classList.add('done');$('visualScore').textContent=`${vscore} / ${v.labels.length}`;$('visualFeedback').className='feedback ok';$('visualFeedback').textContent=`Rätt! ${vsel}.`;vsel=null;document.querySelectorAll('#visualChips .chip').forEach(x=>x.classList.remove('sel'));if(vscore===v.labels.length){$('visualFeedback').textContent='Alla rätt! Snyggt jobbat.';$('visualNext').textContent=vi===visuals.length-1?'Till startsidan':'Nästa bild';$('visualNext').classList.remove('hidden');}}else{g.classList.add('bad');setTimeout(()=>g.classList.remove('bad'),450);$('visualFeedback').className='feedback bad';$('visualFeedback').textContent='Inte riktigt. Försök igen.';}}
+$('visualNext').addEventListener('click',()=>{if(vi===visuals.length-1){show('home')}else{vi++;renderVisual();}});
+renderOverview();updateResume();
+})();
+</script>
 </body>
 </html>
