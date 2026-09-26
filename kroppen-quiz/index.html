@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#7c3aed">
+<title>Kroppen – provträning åk 5</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="wrap">
+  <header class="hero">
+    <div class="eyebrow">NO • Årskurs 5</div>
+    <h1>Kroppen – provträning</h1>
+    <p class="sub">Träna på samma områden som i instuderingsfrågorna: matspjälkning, energi, andning, hjärta och blod, skelett, tänder, muskler och skador.</p>
+  </header>
+
+  <section id="home">
+    <div id="resumeCard" class="card resume hidden">
+      <h2>Fortsätt där du slutade</h2>
+      <p class="small" id="resumeText"></p>
+      <button class="btn primary" id="resumeBtn">Fortsätt provet</button>
+    </div>
+    <div class="card">
+      <h2>Vad vill du göra?</h2>
+      <div class="grid">
+        <button class="btn primary" data-action="exam">Starta provträning – 30 frågor</button>
+        <button class="btn soft" data-action="visual">Bildquiz – skelett, tand och lungor</button>
+        <button class="btn" data-action="topics">Träna ett område</button>
+      </div>
+      <p class="small" style="margin-bottom:0">Provet blandar frågorna och visar resultat per område när du är klar.</p>
+    </div>
+    <div class="card">
+      <h2>Det här ska du kunna</h2>
+      <div class="grid grid2" id="overview"></div>
+    </div>
+  </section>
+
+  <section id="topics" class="hidden">
+    <div class="topline"><button class="btn ghost" data-back>← Till start</button><span class="pill">Välj område</span></div>
+    <div class="card"><h2>Områdesträning</h2><div id="topicList" class="grid"></div></div>
+  </section>
+
+  <section id="quiz" class="hidden">
+    <div class="topline"><button class="btn ghost" id="quitQuiz">← Avsluta</button><span class="pill" id="quizMode"></span></div>
+    <div class="card">
+      <div class="topline"><span class="small" id="counter"></span><span class="small" id="liveScore"></span></div>
+      <div class="progress"><i id="bar"></i></div>
+      <div class="pill" id="catPill"></div>
+      <div class="q" id="question"></div>
+      <div class="answers" id="answers"></div>
+      <div id="feedback" class="feedback hidden"></div>
+      <div class="nextbar"><button class="btn primary hidden" id="nextBtn">Nästa fråga</button></div>
+    </div>
+  </section>
+
+  <section id="visual" class="hidden">
+    <div class="topline"><button class="btn ghost" data-back>← Till start</button><span class="pill">Bildquiz</span></div>
+    <div class="card">
+      <div class="topline"><h2 id="visualTitle">Skelettet</h2><span class="pill" id="visualScore">0 / 8</span></div>
+      <p class="small" id="visualIntro">Välj ett ord och tryck sedan på rätt siffra.</p>
+      <div id="visualCanvas" class="visualStage"></div>
+      <div id="visualChips" class="chips"></div>
+      <div id="visualFeedback" class="feedback hidden"></div>
+      <div class="nextbar"><button id="visualNext" class="btn primary hidden">Nästa bild</button></div>
+    </div>
+  </section>
+
+  <section id="result" class="hidden">
+    <div class="card">
+      <div class="eyebrow">Resultat</div>
+      <div class="scorebig" id="resultScore"></div>
+      <h2 id="resultTitle"></h2>
+      <p id="resultText"></p>
+      <div class="resultgrid" id="resultGrid"></div>
+      <div class="grid grid2">
+        <button class="btn primary" id="againBtn">Kör ett nytt prov</button>
+        <button class="btn" id="homeBtn">Till startsidan</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">Övningen bygger på instuderingsfrågorna och de uppladdade sidorna ur kapitlet ”Kroppen”.</div>
+</main>
+<script src="data1.js"></script>
+<script src="data2.js"></script>
+<script src="data3.js"></script>
+<script src="core1.js"></script>
+<script src="core2.js"></script>
+</body>
+</html>
